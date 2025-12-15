@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Schéma douleur – coloriage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Schéma douleur</h1>
+      <p class="subtitle">
+        Choisir la couleur correspondant à l'intensité de la douleur puis colorier la zone du corps concernée.
+      </p>
+    </header>
+
+    <section class="toolbar card">
+      <div class="row">
+        <label>
+          Taille
+          <input id="size" type="range" min="1" max="40" value="10" />
+          <span id="sizeVal" class="mono">10</span>
+        </label>
+
+        <label class="toggle">
+          <input id="eraser" type="checkbox" />
+          Gomme
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="undoBtn" type="button">Annuler</button>
+        <button id="clearBtn" type="button">Tout effacer</button>
+        <button id="exportBtn" type="button">Exporter PNG</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="stage" id="stage">
+        <img id="bg" alt="Schéma" />
+        <canvas id="paint"></canvas>
+      </div>
+
+      <!-- LÉGENDE COULEURS (cases déjà colorées) -->
+      <div class="legend" role="group" aria-label="Intensité de la douleur">
+        <button type="button" class="legend-item active" data-color="#f1c40f">
+          <span class="swatch" style="background:#f1c40f"></span>
+          <span>un peu</span>
+        </button>
+
+        <button type="button" class="legend-item" data-color="#e67e22">
+          <span class="swatch" style="background:#e67e22"></span>
+          <span>moyen</span>
+        </button>
+
+        <button type="button" class="legend-item" data-color="#e74c3c">
+          <span class="swatch" style="background:#e74c3c"></span>
+          <span>beaucoup</span>
+        </button>
+
+        <button type="button" class="legend-item" data-color="#8e44ad">
+          <span class="swatch" style="background:#8e44ad"></span>
+          <span>très mal</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
